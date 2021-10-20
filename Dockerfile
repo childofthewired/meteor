@@ -7,7 +7,6 @@ FROM registry.access.redhat.com/ubi8/nodejs-14
 ## ################################################################################
 # ENV NPM_CONFIG_PREFIX=$HOME/meteor_build/.npm-global
 
-RUN yum install git
 RUN useradd meteor
 RUN mkdir /meteor && chown -R meteor:meteor /meteor
 USER meteor
