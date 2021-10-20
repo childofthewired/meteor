@@ -7,11 +7,9 @@ FROM registry.access.redhat.com/ubi8/nodejs-14
 ## ################################################################################
 # ENV NPM_CONFIG_PREFIX=$HOME/meteor_build/.npm-global
 
-RUN useradd meteor
-RUN mkdir /meteor && chown -R meteor:meteor /meteor
-USER meteor
-WORKDIR /meteor
+WORKDIR $APP_ROOT
 RUN git clone https://github.com/meteor/meteor.git
+WORKDIR $APPROOT/meteor/
 EXPOSE 3000
 
 CMD ["meteor, --production"]
